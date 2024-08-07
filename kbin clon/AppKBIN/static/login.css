@@ -1,0 +1,34 @@
+
+.title {
+    margin-left: 270px;
+    color: rgb(75, 72, 72);
+}
+
+.accesgoogle{
+    display: flex;
+    width: 825px;
+    height: 450px;
+    background-color: white;
+    margin-left: 270px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttongoogle img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.buttongoogle a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 32px;
+    color: black;
+    padding: 20px;
+    border-radius: 5%;
+    font-weight: bold;
+    border: 2px solid black; 
+    margin-left: 10px;
+}

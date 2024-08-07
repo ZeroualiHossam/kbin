@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ thread.title }} - kbin.social </title>
+        <link rel="stylesheet" href="{% static 'edithread.css' %}">
+    </head>
+
+    {% include 'header.html' %}
+    
+    <body class="theme--light">
+        <div class="container">
+            <main>
+                <div class="thread">
+                    <div class="no-multimedia">
+                        <div class="votaciones_">
+                            <form class="votes_" method="post">
+                                {% csrf_token %}
+                                <div class="voto_">
+                                <input type="hidden" name="thread_id" value="{{ thread.id }}">
+                                <button type="submit" name="vote_up" class="votebtn_">
+                                    <a class="number_" href="">{{ thread.upvotes.count }}</a> 
+                                    <img class="vota" src="{% static 'src/flecha_arriba.png' %}" >
+                                </button>
+                                </div>
+                                <div class="voto_">
+                                <button type="submit" name="vote_down" class="votebtn_">
+                                    <a class="number_" href="" >{{ thread.downvotes.count }}</a>
+                                    <img class="vota_" src="{% static 'src/flecha_abajo.png' %}" >
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="info-thread">
+                            <div class="thread-content">
+                                <a class="title-thread" href="/thread/{{ thread.id }}">{{ thread.title }}</a>
+                                <div class="user-info">
+            
+                                    <a class="username" href="">{{ thread.created_by.user.first_name}}</a>
+                                    <a class="time-publ">, {{ thread.created|timesince:now }} ago</a>
+        
+                                </div>
+                            </div>
+                            <div class="under-thread-content">
+            
+                                <a class="coments" href="/thread/{{ thread.id }}#comentarios">
+                                    <span>{{ thread.comments.count}} </span>
+                                    <span>
+                                    {% if thread.comments.count == 1 %} comment
+                                {% endif %}
+                                {% if thread.comments.count != 1 %} 
+                                    comments
+                                {% endif %}</span>
+                                </a>
+                                <form method="post" class="impuls">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="thread_id" value="{{ thread.id }}">
+                                    <button type="submit" class="btn_impulsar" name="vote_impulsar">
+                                        boost
+                                        {% if thread.impulsos.count > 0 %} 
+                                            ({{ thread.impulsos.count }})
+                                        {% endif %}
+                                    </button>
+                                    {%if request.user.is_authenticated and request.user.usuario == thread.created_by %}
+                                        <form method="get" action="/thread/{{ thread.id }}/edit">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn_impulsar" name="edit">
+                                                edit
+                                            </button>
+                                        </form>
+                                        <form method="post" action="/thread/{{ thread.id }}/delete" class="impuls">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn_impulsar" name="delete">
+                                                delete
+                                            </button>
+                                        </form>
+                                    {%endif%}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="word-break: break-word; margin-left: 2rem;">{{thread.body}}</p>
+                </div>   
+                <div class="container">
+                    <main id="main"> 
+                        <div id="content" class="section">
+                            <form name="new_thread" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <label for="id_title" class="required">Title</label>
+                                    <div>{{ form.title }}</div>
+                                    <div class="error-msg">{{ form.title.errors }}</div> 
+                                </div>
+                                <div>
+                                    <label for="id_body">Body</label>
+                                    <div>{{ form.body }}</div>
+                                    <div class="error-msg">{{ form.body.errors }}</div> 
+                                </div>
+                                <div>{{ form.magazine }}</div>
+                                <div class="error-msg">{{ form.magazine.errors }}</div>
+                                {% if request.user.is_authenticated and request.user.usuario == thread.created_by %}
+                                <button type="submit" id="new_thread_submit" name="new_thread_submit" class="btn">Edit thread</button>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </main>
+                </div>
+        </body>
+    </html>

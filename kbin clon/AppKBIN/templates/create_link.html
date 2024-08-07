@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add new link - kbin.social</title>
+        <link rel="stylesheet" href="{% static 'new.css' %}">
+    </head>
+
+    {% include 'header.html' %}
+    
+    <body class="theme--light">
+            <div class="container">
+                <main id="main"> <!--Estipular el código principal-->
+                    <aside class="options options--top"> <!--Estipular el código secundario-->
+                        <div class="options__title">
+                            <h2>Add new</h2>
+                        </div>
+                        <menu> <!--Lista no ordenada de elementos-->
+                            <li>
+                                <a href="/new/link" class="active">
+                                    link
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/new/thread">
+                                    thread
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/new/magazine">
+                                    magazine
+                                </a>
+                            </li>
+                        </menu>
+                    </aside>
+                    <div id="content" class="section">
+                        <form name="create_link" method="post">
+                            {% csrf_token %}
+                            <div>
+                                <label for="id_url" class="required">Url</label>
+                                <div>{{ form.url }}</div>
+                                <div class="error-msg">{{ form.url.errors }}</div> 
+                            </div>
+                            <div>
+                                <label for="id_title" class="required">Title</label>
+                                <div>{{ form.title }}</div>
+                                <div class="error-msg">{{ form.title.errors }}</div> 
+                            </div>
+                            <div>
+                                <label for="id_body">Body</label>
+                                <div>{{ form.body }}</div>
+                                <div class="error-msg">{{ form.body.errors }}</div> 
+                            </div>
+                            <div>
+                                <div>{{ form.magazine }}</div>
+                                <div class="error-msg">{{ form.magazine.errors }}</div> 
+                            </div>
+                            <button type="submit" id="new_link_submit" name="new_link_submit" class="btn">Add new link</button>
+                        </form>
+                    </div>
+                </main>
+            </div>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,84 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin-bottom: 50px;
+}
+
+
+.container2{
+    width: 900px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35px;
+    background-color: white;
+    box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.1);
+    margin-right: 450px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.textarea-field {
+    width: 750px;
+    resize: vertical;
+    overflow: auto;
+    min-height: 10px;
+    font-size: 16px;
+    padding: 15px;
+    font-family: sans-serif;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+
+label{
+    padding-bottom: 10px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.button{
+    align-self: flex-end;
+    margin-top: 25px;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    background: var(--header-color);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+.button:active {
+    transform: scale(0.96);
+    transition: transform 0.1s;
+}
+
+.select-field {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+}
+
+.select-field:focus {
+    border-color: #000000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+}

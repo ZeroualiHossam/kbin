@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'user_comment.css' %}">
+    </head>
+    <body class="theme--light">
+        <div class="container">
+            <main>
+                <div id="comment{{ comment.id }}" class="comment{% if reply_to_comment_id == comment.id or form_edit.instance.id == comment.id%} with-reply-form{% endif %}" {% if comment.parent %}style="margin-left: {{level|add:0.5}}rem;"{% endif %}>
+                    <div class="commentMainInfo">
+                        {% if comment.user.user.usuario.avatar %}
+                        <img src="{{ comment.user.user.usuario.avatar.url }}">
+                        {% endif %}
+                        <div>
+                            <header>
+                                <div>
+                                    <a class="nom" href="/u/{{ comment.user.user.username }}">{{ comment.user.user.username }}</a>
+                                    ,
+                                    {{ comment.created|timesince:now }} ago
+                                    <a class="nom" href="/thread/{{ comment.thread.id }}#comment{{ comment.id }}"> {{comment.thread.title}}</a>
+                                </div>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {%if request.user.usuario in comment.upvotes.all%}
+                                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                    <button type="submit" name="vote_up" class="votebtn_clicked">
+                                        {{ comment.upvotes.count }}
+                                        <img class="vota" src="{% static 'src/flecha_arriba.png' %}" >
+                                    </button>
+                                    {%else%}
+                                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                    <button type="submit" name="vote_up" class="votebtn">
+                                        {{ comment.upvotes.count }}
+                                        <img class="vota" src="{% static 'src/flecha_arriba.png' %}" >
+                                    </button>
+                                    {%endif%}
+                                    {%if request.user.usuario in comment.downvotes.all%}
+                                    <button type="submit" name="vote_down" class="votebtn_clicked">
+                                        {{ comment.downvotes.count }}
+                                        <img class="vota" src="{% static 'src/flecha_abajo.png' %}" >
+                                    </button>
+                                    {%else%}
+                                    <button type="submit" name="vote_down" class="votebtn">
+                                        {{ comment.downvotes.count }}
+                                        <img class="vota" src="{% static 'src/flecha_abajo.png' %}" >
+                                    </button>
+                                    {%endif%}
+                                </form>
+                            </header>
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                    </div>
+                    <div class="under-comment-content">
+                        <a href="?reply_to={{ comment.id }}&option={{option}}">reply</a>
+                        {%if request.user.usuario == comment.user%}
+                        <a href="?edit={{ comment.id }}&option={{option}}">edit</a>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                            <button type="submit" name="delete_comment_id">delete</button> 
+                        </form>
+                        {%endif%}
+                        {% if comment.parent is none %}
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                <button type="submit" name="vote_impulsar">
+                                    boost
+                                    {% if comment.impulsos.count > 0 %} 
+                                        ({{ comment.impulsos.count }})
+                                    {% endif %}
+                                </button> 
+                            </form>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if reply_to_comment_id == comment.id %}
+                            <form name="new_comment" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                    <div>{{ form.comment }}</div>
+                                    <div class="error-msg">{{ form.comment.errors }}</div>
+                                </div>
+                                <div class="">
+                                    <button type="submit" id="new_reply_submit" name="new_reply_submit" class="btn">Add new comment</button>
+                                </div>
+                            </form>
+                        {% endif %}
+                        {% if form_edit.instance.id == comment.id %}
+                            <form name="new_comment" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                    <div>{{ form_edit.comment }}</div>
+                                    <div class="error-msg">{{ form_edit.comment.errors }}</div>
+                                </div>
+                                <div class="">
+                                    <button type="submit" id="edit_comment_submit" name="edit_comment_submit" class="btn">Update comment</button>
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Mostrar los comentarios hijos -->
+                {% if comment.replies.all %}
+                <ul>
+                    {% for child_comment in comment.replies.all%}
+                        <li style="list-style-type: none;">
+                            {% with increased_level=level|add:1%}
+                                {% include 'comment_user.html' with comment=child_comment level=increased_level%}
+                            {% endwith %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </main>
+        </div>
+    </body>
+</html>

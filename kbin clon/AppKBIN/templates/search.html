@@ -1,0 +1,111 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kbin.social - Explore the Fediverse</title>
+    <link rel="stylesheet" href="{% static 'searchstyle.css' %}">
+    <link rel="shortcut icon" href="{% static 'src/favicon.ico' %}">
+</head>
+
+<body>
+    <div class="contenedor">
+        <form class="buscador" method="GET" action="">
+            <input class="searcher" type="text" name="q" value="{{ query }}" placeholder="Escriu terme per buscar...">
+            <button type="submit">
+                <img src="{% static 'src/search.svg' %}" alt="">
+            </button>
+        </form>
+    </div>
+
+        {% if request.GET.q %}
+        <aside class="filtros-threads" id="">
+            <menu class="filtros">
+                <div class="filtros-text">
+                    <li><a href="/search/?q={{ query }}&filter_by=destacado" class="{% if not filter_by or filter_by == 'destacado' %}active{% endif %}">top</a></li>
+                    <li><a href="/search/?q={{ query }}&filter_by=newest" class="{% if filter_by == 'newest' %}active{% endif %}">newest</a></li>
+                    <li><a href="/search/?q={{ query }}&filter_by=comentado" class="{% if filter_by == 'comentado' %}active{% endif %}">commented</a></li>                    
+                </div>
+            </menu>
+        </aside>
+        {% endif %}
+
+        <div class="results">
+            {% if threads %}
+            {% for thread in threads %}
+            <div class="thread">
+                <div class="no-multimedia">
+                    <div class="votaciones">
+                        <form class="votes" method="post">
+                            {% csrf_token %}
+                            <div class="voto">
+                            <input type="hidden" name="thread_id" value="{{ thread.id }}">
+                            <button type="submit" name="vote_up" class="votebtn">
+                                <a class="number" href="">{{ thread.upvotes.count }}</a>
+                                <img class="vota" src="{% static 'src/flecha_arriba.png' %}" >
+                            </button>
+                            </div>
+                            <div class="voto">
+                            <button type="submit" name="vote_down" class="votebtn">
+                                <a class="number" href="">{{ thread.downvotes.count }}</a>
+                                <img class="vota" src="{% static 'src/flecha_abajo.png' %}" >
+                            </button>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="info-thread">
+                        <div class="thread-content">
+                            <a class="title-thread" href="/thread/{{ thread.id }}">{{ thread.title }}</a>
+                            <div class="user-info">
+        
+                                <a class="username" href="/u/{{ request.user.username }}">{{ thread.created_by.user.username}}</a>
+                                <a class="time-publ">, {{ thread.created|timesince:now }} ago</a>
+        
+                                {% for magazine in magazine_names %}
+                                {% if thread.magazine_id == magazine.id %}
+                                    <a class="thread-name" href="m/{{ magazine.name }}">{{ magazine.name }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="under-thread-content">
+        
+                            <a class="number-coments" href="/thread/{{ thread.id }}#comentarios">{{ thread.comments.count}}</a>
+                            <a class="coments" href="/thread/{{ thread.id }}#comentarios">
+                                {% if thread.comments.count == 1 %} comment
+                            {% endif %}
+                            {% if thread.comments.count != 1 %}
+                                comments
+                            {% endif %}
+                            </a>
+                            <form method="post" class="impuls">
+                                {% csrf_token %}
+                                <input type="hidden" name="thread_id" value="{{ thread.id }}">
+                                <button type="submit" class="btn_impulsar" name="vote_impulsar">
+                                    boost
+                                    {% if thread.impulsos.count > 0 %}
+                                        ({{ thread.impulsos.count }})
+                                    {% endif %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+                {% if query != '' %}
+                <div class="no-result">
+                    <p>No se encontraron resultados para "{{ query }}".</p>
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+</body>
+</html>
+{% endblock %}
+
+

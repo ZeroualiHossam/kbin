@@ -1,0 +1,123 @@
+.theme--light {
+	--body-font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--body-bg: #ecf0f1;
+	--text-color: #212529;
+	--primary-color: #61366b;
+	--section-bg: #fff;
+	--options-bg: #fff;
+	--options-text-color: #95a5a6;
+	--options-link-color: #95a5a6;
+	--options-link-hover-color: #32465b;
+	--options-link-hover-border: 3px solid #32465b;
+	--input-bg: #fff;
+	--button-primary-bg: #4e3a8c;
+	--button-primary-text-color: #fff;
+	--meta-link-color: #606060;
+	--vote-bg: #f3f3f3;
+    --vote-text-color: #b6b6b6;
+    --input-text-color: var(--text-color);
+    --input-border: 1px solid #e5eaec;
+	--section-border: 1px solid #e5eaec;
+	--button-primary-hover-bg: #3f2e77;
+    --button-primary-text-hover-color: #fff;
+}
+
+body { 
+	background-color: var(--body-bg); 
+	color: var(--text-color);
+	font-family: var(--body-font-family);
+	margin: 0; 
+}
+
+.container { 
+	margin: 0 auto; 
+	max-width: 1360px; 
+}
+
+.options { 
+	background: var(--options-bg); 
+	border: var(--section-border);
+	color: var(--options-text-color); 
+	display: grid; 
+	font-size: .85rem; 
+	grid-template-columns: max-content max-content max-content max-content; 
+	height: 2.5rem; 
+	margin-bottom: .5rem;
+}
+
+.options > * { 
+	display: grid; 
+	grid-auto-columns: max-content;
+	grid-auto-flow: column;
+	list-style: none; 
+}
+
+.options > * a {
+	color: var(--options-link-color); 
+	display: block; 
+	padding: .5rem 1rem; 
+    padding-top: 15px;
+	text-decoration: none; 
+} 
+
+.options > * a.active, .options > * a:hover {
+	padding-top: 15px; 
+	border-bottom: var(--options-link-hover-border);
+	color: var(--options-link-hover-color); 
+}
+
+.options h2 {
+	font-size: .85rem; 
+}
+
+.options__title { 
+	align-self: center; 
+	margin: 0 .5rem;
+	text-transform: uppercase; 
+}
+
+menu {
+	margin: 0; 
+	padding: 0; 
+}
+
+.section {
+	background-color: var(--section-bg) !important; 
+	border: var(--section-border);
+	padding: 2rem 1rem; 
+}
+
+form div {
+	margin-bottom: 1rem; 
+}
+
+.btn { 
+	cursor: pointer; 
+	font-size: .85rem; 
+	font-weight: 700; 
+	color: var(--button-primary-text-color); 
+	padding: .7rem; 
+	background: var(--button-primary-bg); 
+	border: var(--button-primary-border); 
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+textarea,input,select { 
+	background: var(--input-bg); 
+	border: var(--input-border); 
+	color: var(--input-text-color); 
+	font-family: var(--body-font-family); 
+	font-size: .9rem; 
+	box-sizing: border-box; 
+	padding: 1rem .5rem;
+	resize: vertical; 
+	width: 100%; 
+}
+
+.btn:hover {
+    background: var(--button-primary-hover-bg);
+    color: var(--button-primary-text-hover-color)!important
+}

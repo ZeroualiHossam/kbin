@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Magazines - kbin.social</title>
+        <link rel="stylesheet" href="{% static 'magazine.css' %}">
+    </head>
+
+    {% include 'header.html' %}
+
+<body class="theme--dark">
+    <div class="container">
+        <aside class="options options--top" id="options">
+            <menu class="options__main">
+                <li>
+                    <a href="?order=threads" {% if order == "threads" %}class="active"{% endif %}>
+                        #threads
+                    </a>
+                </li>
+                <li>
+                    <a href="?order=comments" {% if order == "comments" %}class="active"{% endif %}>
+                        #comments
+                    </a>
+                </li>
+                <li>
+                    <a href="?order=subscribers" {% if order == "subscribers" %}class="active"{% endif %}>
+                        #subscribers
+                    </a>
+                </li>
+            </menu>
+            </aside>
+    </div>
+
+<div class="container">
+    <div id="content" class="section">
+        <div class="magazines table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th><a href="/magazines/threads">Threads</a></th>
+                    <th><a href="/magazines/comments">Comments</a></th>
+                    <th style="text-align: center">Subscriptions<i class="fa-solid fa-sort-amount-desc" aria-sort="descending"></i></th>
+                    </tr>
+                </thead>
+            <tbody>
+            {% for magazine, is_subscribed in magazine_sub %}
+            <tr>
+                <td><a href="/m/{{magazine.name}}" class="magazine-inline stretched-link" title="{{ magazine.name }}">{{ magazine.name }}</a></td>
+                <td>{{magazine.threads.count}}</td>
+                <td>{{ magazine.total_comments_count }}</td>            
+                <td><aside class="magazine__subscribe" data-controller="subs">
+                    <div class="action">
+                        <span>{{ magazine.subscribers.count }}</span>
+                    </div>
+                    {%if is_subscribed%}
+                        <form action="/m/{{magazine.name}}/subscribe" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Unsubscribe</button>
+                        </form>
+                    {%else%}
+                        <form action="/m/{{magazine.name}}/subscribe" method="post">
+                            {% csrf_token %}
+                            <button class="btn__secondary" type="submit">Subscribe</button>
+                        </form>
+                     {%endif%}
+                </aside></td>
+            </tr>
+            {% endfor %}
+        </div>         
+    </div>
+</div>
+</body>
+</html>

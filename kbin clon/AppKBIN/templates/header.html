@@ -1,0 +1,75 @@
+<!-- header.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kbin.social - Explore the Fediverse</title>
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <link rel="shortcut icon" href="{% static 'src/favicon.ico' %}">
+</head>
+<body>
+    <header>
+        <div class="kbin-container">
+            <nav class="head-nav">
+                <a class="logo" href="/">
+                    <img src="{% static 'src/kbin_logo.svg' %}" alt="Kbin Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Threads</a></li>
+                    <li><a href="/magazine" class="{% if '/magazine' in request.path %}active{% endif %}">Magazines</a></li>
+                </ul>
+            </nav>
+            <menu class="navs">
+                <li class="dropdown">
+                    <a href="/search" class="icono">
+                        <img src="{% static 'src/search.svg' %}" alt="Search">
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="icono">
+                        <img src="{% static 'src/add.svg' %}" alt="Add">
+                    </a>
+                    <ul class="dropdown__menu">
+                        <li><a href="/new/link" class="nav-link">Add new link</a></li>
+                        <li><a href="/new/thread" class="nav-link">Add new thread</a></li>
+                        <li><a href="/new/magazine" class="nav-link">Create new magazine</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="icono">
+                        <img  src="{% static 'src/menu.svg' %}" >
+                        <i class="fa-solid fa-plus"></i> 
+                    </a>
+                    <ul class="dropdown__menu">
+                        <li><a href="" class="nav-link">Subscribed</a></li>
+                        <li><a href="" class="nav-link">Moderated</a></li>
+                        <li><a href="" class="nav-link">Favorites</a></li>
+                        <li><a href="" class="nav-link">All</a></li>
+                    </ul>
+                </li>
+            </menu>
+            <div class="login"> 
+                <li class="dropdown">
+                        {%if request.user.is_authenticated %}
+                        <a class="username" href="/ ">{{ request.user.first_name }}</a>
+                        <ul class="dropdown__menu">
+                            <li><a href="/u/{{ request.user.username }}" class="nav-link">Profile</a></li>
+                            <li><a href="/settings/profile" class="nav-link">Settings</a></li>
+                            <li><a href="/logout" class="nav-link">Log out</a></li>
+                        </ul>
+                        {% else %}
+                        <a href="/login">Log in</a>
+                        {% endif %}
+                </li>
+            </div>
+        </div>
+    </header>
+
+    <div class="contenido">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

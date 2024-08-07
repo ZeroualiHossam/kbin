@@ -1,0 +1,123 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #ecf0f1;
+}
+
+header {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(27, 10, 75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    align-items: center;
+    margin-left: 285px;
+    margin-right: -10px;
+}
+
+.logo img {
+    height: 27px;
+    width: auto;
+}
+
+.head-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.nav-links li a.active {
+    background-color: rgb(9, 5, 33);
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 2px solid white;
+}
+
+.login{
+    margin-left: 20px;
+}
+
+.login a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.nav-links li a:hover {
+    border-bottom: 2px solid white;
+}
+
+.icono img {
+    width: 15px;
+    height: auto;
+    fill: white;
+    padding: 15px;
+}
+
+.navs {
+    margin-left: 650px;
+    display: flex;
+    list-style-type: none;
+}
+
+.dropdown{
+    list-style-type: none;
+}
+
+.dropdown__menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    list-style-type: none;
+    text-decoration: none;
+    top: 32px;
+    padding:0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index:1000;
+}
+
+.dropdown__menu li:hover {
+    background-color: #c5c2c2; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.dropdown__menu li a {
+    color: rgb(75, 72, 72);
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.dropdown:hover .dropdown__menu,
+.dropdown:focus-within .dropdown__menu {
+    display: block;
+}
+
+.kbin-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

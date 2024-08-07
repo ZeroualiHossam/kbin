@@ -1,0 +1,231 @@
+:root {
+    --header-color: linear-gradient(45deg, rgb(52, 2, 85) 0%, rgba(16, 16, 155, 0.842) 35%, rgb(72, 24, 160) 70%, rgb(0, 60, 255) 100%);
+}
+
+.list-thread {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 450px;
+}
+
+.list-thread a {
+    text-decoration: none;
+}
+
+.box {
+    width: 900px;
+    height: fit-content + 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 35px;
+    background-color: white;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.zona-superior {
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.box-left {
+    padding: 30px;
+}
+
+.vote-up {
+    width: 80px;
+    height: 60px;
+    background-color: #e5eaec;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.vote-up p {
+    color: black;
+    font-size: 24px;
+    padding-right: 3px;
+    padding-left: 10px;
+}
+
+.vote-up img {
+    margin-top: 8px;
+    width: 24px;
+    height: 30px;
+}
+
+.vote-down {
+    width: 80px;
+    height: 60px;
+    background-color: #e5eaec;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.vote-down p {
+    color: black;
+    font-size: 24px;
+    padding-right: 3px;
+    padding-left: 10px;
+}
+
+.vote-down img {
+    margin-top: 9px;
+    width: 24px;
+    height: 30px;
+}
+
+.vote-up:hover {
+    background-color: #3ddf7b;
+}
+
+.vote-down:hover {
+    background-color: #dd4646;
+}
+
+.vote-up-active {
+    background-color: #a4d8b8; /* Color de fondo cuando está votado positivamente */
+}
+
+.vote-down-active {
+    background-color: #d3a7a7; /* Color de fondo cuando está votado negativamente */
+}
+
+.box-top {
+    padding-top: 25px;
+    margin-right: 30px;
+}
+
+.name {
+    color: #37769e;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.name:hover {
+    color: #275878;
+}
+
+.url {
+    color: #37769e;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.url:hover {
+    color: #275878;
+}
+
+.box-center {
+    display: flex;
+    padding-top: 25px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.box-center a {
+    color: #757474;
+    font-size: 18px;
+}
+
+.name {
+    font-weight: bold;
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+.name:hover {
+    color: #275878;
+}
+
+.magazine {
+    font-weight: bold;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+.magazine:hover {
+    color: #275878;
+}
+
+.box-bottom {
+    font-size: 16px;
+    padding-top: 12px;
+    display: flex;
+}
+
+.comments {
+    text-decoration: none;
+    padding-right: 20px;
+    color: #757474;
+}
+
+.comments:hover {
+    color: #275878;
+}
+
+.boost {
+    text-decoration: none;
+    color: #757474;
+}
+
+.boost:hover {
+    color: #275878;
+}
+
+.boost-active{
+    color: #37769e;
+    font-weight: bold;
+
+}
+
+.edit {
+    padding-left: 25px;
+    text-decoration: none;
+    color: #757474;
+}
+
+.edit:hover {
+    color: #275878;
+}
+
+.delete {
+    padding-left: 20px;
+    text-decoration: none;
+    color: #757474;
+}
+
+.delete:hover {
+    color: #275878;
+}
+
+.active {
+    color: #37769e;
+    font-weight: bold;
+}
+
+.thread-body {
+    text-decoration: none;
+    color: black;
+    padding-right: 100px;
+    padding-left: 100px;
+    text-align: justify;
+    padding-bottom: 35px;
+}

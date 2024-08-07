@@ -1,0 +1,128 @@
+.containerMagazine { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 450px;
+}
+
+.magazineSection {
+    background-color: white; 
+    margin: 20px auto; 
+    padding: 20px; 
+    width: 860px;
+    position: center;
+    border-radius: 10px;
+}
+
+.magazineH3 {
+    border-bottom: 1px solid #e5eaec;
+    color: #909ea2;
+    font-size: 1rem;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    align-content: center;
+}
+
+.magazineName {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    margin-top: .5rem;
+    text-align: center;
+}
+
+.magazineTitle {
+    margin-top: 0;
+    text-align: center
+}
+
+.magazineInfo {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    justify-content: left
+}
+
+.magazineSubscribe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+}
+
+.contentMagazine {
+    position: relative;
+    word-break: break-word;
+}
+
+.contentMagazine {
+    overflow: hidden !important;
+}
+
+.mt-3 {
+    margin-top: 1.5rem !important;
+}
+
+.magazineName a {
+    color: #37769e;
+    overflow-wrap: anywhere;
+    text-decoration: none; 
+}
+
+.magazineName a:hover {
+    color: #275878;
+}
+.magazine__subscribe_view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.magazine__subscribe_view div {
+    align-items: center;
+    background: #fff;
+    color: #606060;
+    display: flex;
+    flex-direction: row;
+    font-size: .9rem;
+    left: 1px;
+    position: relative;
+}
+
+.magazine__subscribe_view button {
+    height: 1.7rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: #606060;
+    border-left: 1px dashed #e5eaec;
+    border-bottom: 0px solid #e5eaec;
+    border-top: 0px solid #e5eaec;
+    border-right: 0px solid #e5eaec;
+    padding: 0.3rem 0.5rem;
+}
+
+.magazine__subscribe_view .action {
+    background-color: #fff;
+    border: 1px dashed #e5eaec;
+    margin-left: .5rem;
+}
+
+.magazine__subscribe_view span {
+    color: #606060;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+}
+
+.magazine__subscribe_view button:hover {
+    background: #f5f5f5;
+    color: #212529;
+}
+
+.magazine__subscribe_view-count {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+

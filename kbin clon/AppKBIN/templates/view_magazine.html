@@ -1,0 +1,61 @@
+<!-- threads.html -->
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{magazine.name}} - kbin.social</title>
+    <link rel="stylesheet" href="{% static 'magazine_threads.css' %}">
+    <link rel="shortcut icon" href="{% static 'src/favicon.ico' %}">
+</head>
+{% include 'header.html' %}
+<body>
+    <div class="container">
+        <section class="magazine_section">
+            <h3>MAGAZINE</h3>
+            <div class="magazine_section">
+                <h4 class = "magazine_name">
+                <a href="/m/{{magazine.name}}">
+                    {{ magazine.name }}
+                </a>
+                </h4>
+                <p class = "magazine__title">{{magazine.title}}<p>
+                <td><aside class="magazine__subscribe" data-controller="subs">
+                    <div class="action">
+                        <span>{{ magazine.subscribers.count }}</span>
+                    </div>
+                    {%if is_subscribed%}
+                        <form action="/m/{{magazine.name}}/subscribe" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Unsubscribe</button>
+                        </form>
+                    {%else%}
+                        <form action="/m/{{magazine.name}}/subscribe" method="post">
+                            {% csrf_token %}
+                            <button class="btn__secondary" type="submit">Subscribe</button>
+                        </form>
+                    {%endif%}
+                </aside></td>
+            </div>
+            <div class="content magazine__description">
+            <h3> ABOUT COMMUNITY</h3>
+                {% if magazine.description %}
+                    <p>{{ magazine.description }}</p>
+                 {% else %}
+                    <p>No description provided</p>
+                {% endif %}            </div>
+            <h3 class= "mt-3"> RULES </h3>
+            <div class= "content magazine__rules">
+                {% if magazine.rules %}
+                    <p>{{ magazine.rules }}</p>
+                 {% else %}
+                    <p>No rules provided</p>
+                {% endif %}                </div>
+        </section>
+    </div>
+        {%include 'threads_list_magazine.html' %}
+    </body>
+    </html>
+{%endblock%}

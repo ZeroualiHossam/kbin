@@ -1,0 +1,50 @@
+/* Estil general del formulari */
+.form-container {
+    max-width: 600px; /* Ajusta aquesta mida per ajustar la amplada del teu formulari */
+    margin: auto; /* Això centrarà el contenidor en la pàgina */
+    padding: 20px; /* Espaiament al voltant del contingut del contenidor */
+    background-color: #fff; /* Fons blanc per al contenidor del formulari */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra suau per al contenidor */
+  }
+  
+  /* Estils per als inputs del formulari */
+  input[type="text"],
+  textarea,
+  button {
+    width: 100%; /* Fes que els elements ocupin tota l'amplada del contenidor */
+    padding: 10px; /* Espaiament dins dels camps d'entrada */
+    margin-bottom: 20px; /* Espai entre elements del formulari */
+    border: 1px solid #ddd; /* Bordes lleugerament definits per als camps */
+    box-sizing: border-box; /* Assegura't que padding i border no augmentin l'amplada */
+  }
+  
+  /* Estil per al botó de guardar */
+  button {
+    background-color: #5e4fbf; /* Color de fons per al botó, ajusta segons el teu disseny */
+    color: white; /* Text de color blanc per al botó */
+    border: none; /* No border per al botó */
+    cursor: pointer; /* Estil de cursor com a punter per indicar que és clickable */
+    transition: background-color 0.3s; /* Transició suau per canvis de color */
+  }
+  
+  button:hover {
+    background-color: #473b9b; /* Canvia el color de fons quan el ratolí passa per sobre */
+  }
+  
+  /* Pots necessitar estils addicionals per als altres elements com arxius d'entrada, etiquetes, etc. */
+  
+  /* Això aplicarà marge a tots els elements label que segueixin immediatament després d'un input de tipus 'file' */
+  input[type="file"] + label {
+    margin-top: 20px; /* Ajusta aquest valor segons la quantitat d'espai desitjada */
+  }
+  
+  /* Aquest CSS afectarà només al segon label després d'un input de tipus 'file' si estan un darrere l'altre */
+  input[type="file"] + label + input[type="file"] + label {
+    margin-top: 40px; /* Aquest valor és major per proporcionar més espai entre els elements */
+  }
+  
+  /* Alternativament, si vols afegir marge al final de tots els elements input de tipus 'file' */
+  input[type="file"] {
+    margin-bottom: 20px; /* Espaiat extra després de l'input 'file' */
+  }
+  

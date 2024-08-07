@@ -1,0 +1,121 @@
+.theme--light {
+	--body-font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--body-bg: #ecf0f1;
+	--text-color: #212529;
+	--primary-color: #61366b;
+	--section-bg: #fff;
+	--options-bg: #fff;
+	--options-text-color: #95a5a6;
+	--options-link-color: #95a5a6;
+	--options-link-hover-color: #32465b;
+	--options-link-hover-border: 3px solid #32465b;
+	--input-bg: #fff;
+	--button-primary-bg: #4e3a8c;
+	--button-primary-text-color: #fff;
+	--meta-link-color: #606060;
+	--vote-bg: #f3f3f3;
+    --vote-text-color: #b6b6b6;
+    --input-text-color: var(--kbin-text-color);
+    --input-border: 1px solid #e5eaec;
+	--section-border: 1px solid #e5eaec;
+}
+
+body { /*body normal*/
+	background-color: var(--body-bg); /*Aplicar color fondo body*/
+	color: var(--text-color); /*Aplicar color texto body*/
+	font-family: var(--body-font-family); /*Aplicar fuente texto body*/
+	margin: 0; /*Establece si hay algun margen (aplicar un espacio)*/
+}
+
+.container { /*Contenedor general*/
+    align-items: center;
+}
+.options {
+    background: white;
+    color: var(--options-text-color);
+    display: flex;
+    font-size: .85rem;
+    grid-template-areas: "start middle beforeEnd end";
+    grid-template-columns: max-content auto max-content max-content;
+    height: 2.5rem;
+    margin-bottom: .5rem;
+    z-index: 5;
+	width: 825px;
+	margin-left: 270px;
+}
+
+.options > * { 
+	display: grid; /*Todos los elementos que se creen dentro de un elemtno html con la clase options se añadirán en una tabla*/
+	grid-auto-columns: max-content; /*Cada elemento de cada columna ocupará el espacio necesario*/
+	grid-auto-flow: column; /*Cuando se añade un elemento, se añade como una nueva columna*/
+	list-style: none; /*Eliminar marcadores (que se vea con un · al lado de cada elemento de la tabla de una lista*/
+}
+
+.options > * a {
+	color: var(--options-link-color); /*Color de la fuente de las opciones*/
+	display: block; /*Lo mete en un bloque*/
+	padding: .5rem 1rem; /*.5 relleno superior e inferior, 1 relleno izquierdo y direcho*/
+	text-decoration: none; /*No se le subraya*/
+} /* Todos los que sean hijos de una clase options, que se creen objetos deentro de ella, y sean de tipo <a>*/
+
+.options > * a.active, .options > * a:hover { /*Lo del hover es si pasas por encima seleccionandolo*/
+	border-bottom: var(--options-link-hover-border); /*Ponerle un borde a la opción seleccionada*/
+	color: var(--options-link-hover-color); /*Color del borde*/
+}
+
+.options h2 {
+	font-size: .85rem; /*Si el objeto h2 esta dentro de un options aplica este tamaño de letra*/
+}
+
+.options__title { /*Para el "añadir nuevo"*/
+	align-self: center; /*Se centre verticalmente*/
+	margin: 0 .5rem; /* 0 margen superior e inferior, 0.5 dejar un margen del 50% del elemento raiz*/
+	text-transform: uppercase; /*Transforma el texto en mayuscula*/
+}
+
+.menu_opt {
+	margin: 0; /*Establece que no haya margenes fuera del elemento menu*/
+	padding: 0; /*Establece que no haya relleno dentro de los elementos de menu*/
+}
+
+.section {
+	background-color: var(--section-bg) !important; /*Fondo de la caja sección*/
+	padding: 2rem 1rem; /*Espacios internos, 2 superior e inferior, 1 en los laterales*/
+    width: 793px;
+	margin-left: 270px;
+}
+
+.section_comments {
+    width: 825px;
+	margin-left: 270px;
+}
+
+form div {
+	margin-bottom: 1rem; /*Se se pone un div en un form, se deja un espacio abajo*/
+}
+
+.btn { /*Para el boton de enviar*/
+	cursor: pointer; /*Se cambia a un a mano al ponerse por encima del elemento*/
+	font-size: .85rem; /*Tamaño fuente*/
+	font-weight: 700; /*Peso fuente*/
+	color: var(--button-primary-text-color); /*Color fuente*/
+	padding: .7rem; /*Dejar espacio en todas direcciones*/
+	background: var(--button-primary-bg); /*Color fondo*/
+	border: var(--button-primary-border); /*Color borde*/
+}
+
+h2 {
+	font-size: 2rem; /*Los segundos titulos tendrén tamaño *2 del elementor aiz*/
+}
+
+textarea,input,select { 
+	background: var(--input-bg); /*Color fondo*/
+	border: var(--input-border); /*Color borde*/
+	color: var(--input-text-color); /*Color fuente*/
+	font-family: var(--body-font-family); /*Tipo fuente*/
+	font-size: .9rem; /*Tamaño fuente*/
+	box-sizing: border-box; /*Incluir relleno y altura en la caja*/
+	padding: 1rem .5rem; /*Dentro del texto hya un espacio arriba y abajo y 0.5 laterales*/
+	resize: vertical; /*La única forma de modificar el tamaño es verticalmente*/
+	width: 100%; /*Que ocupe todo el ancho posible*/
+}

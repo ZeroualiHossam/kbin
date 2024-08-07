@@ -1,0 +1,381 @@
+.contenedor {
+    background-color: rgb(255, 255, 255);
+    margin-left: 270px;
+    align-items: center;
+    width: 825px;
+    height: 150px;
+    justify-content: center;
+}
+
+.buscador img {
+    height: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador button {
+    background-color: blueviolet;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 15%;
+    font-family: inherit;
+}
+
+.impuls {
+    margin-left: 10px;
+}
+
+.impuls button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #97999d;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-result {
+    margin-top: 15px;
+    width: 825px;
+    height: 150px;
+    margin-left: 270px;
+    background-color: white;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.no-result p {
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buscador {
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    margin-left: 180px;
+}
+
+.buscador input {
+    font-size: 20px;
+    width: 400px;
+    height: 60px;
+}
+
+.filtros-threads {
+    background-color: white;
+    margin-left: 270px;
+    align-items: center;
+    width: 825px;
+    height: 45px;
+    margin-top: 15px;
+}
+
+.filtros,
+.iconos-filtros {
+    display: flex;
+    align-items: center;
+}
+
+.filtros-text {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.iconos-filtros {
+    margin-left: 330px;
+    padding-bottom: 12px;
+}
+
+.filtros-text li a {
+    margin-right: 20px;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #98a5a6;
+}
+
+.filtros-text li {
+    padding-top: 14px;
+    list-style-type: none;
+}
+
+.filtros-text li a:hover {
+    padding-bottom: 10px;
+    margin-right: 20px;
+    border-bottom: 3px solid rgb(207, 201, 201);
+}
+
+.filtros-text li a.active {
+    padding-bottom: 11px;
+    border-bottom: 3px solid rgb(27, 10, 75);
+}
+
+.dropdown_filter {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    list-style-type: none;
+    text-decoration: none;
+    top: 245px;
+    padding: 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown_filter li:hover {
+    background-color: #c5c2c2;
+}
+
+.dropdown_filter li a {
+    color: rgb(75, 72, 72);
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.dropfilter,
+.dropfilter:hover .dropdown_filter,
+.dropfilter:focus-within .dropdown_filter {
+    display: block;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.dropdown_filter li a.active {
+    color: rgb(75, 72, 72);
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 10px 15px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.thread {
+    width: 825px;
+    background-color: white;
+    height: auto;
+    margin-left: 270px;
+    padding-bottom: 15px;
+}
+
+.thread .no-multimedia {
+    margin-top: 15px;
+    display: flex;
+}
+
+.thread .media {
+    padding: 15px;
+    width: 825px;
+    height: auto;
+}
+
+.thread .media iframe {
+    padding: 15px;
+    width: 760px;
+    height: 400px;
+    border: 0;
+}
+
+.thread {
+    margin-top: 15px;
+    display: block;
+}
+
+.left {
+    display: block;
+}
+
+.updown {
+    background-color: #ecf0f1;
+    display: flex;
+    height: 25px;
+    width: 75px;
+    padding-bottom: 10px;
+}
+
+.updown img {
+    align-items: center;
+}
+
+.updown .number {
+    font-weight: bold;
+    color: #a8b7b8;
+    font-size: 16px;
+}
+
+.updown:hover {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 18px;
+    width: 75px;
+    padding-bottom: 10px;
+}
+
+.vota img {
+    padding-top: 10px;
+    margin-left: 5px;
+    padding-bottom: 10px;
+    height: 15px;
+    width: auto;
+}
+
+.thread-content .title-thread {
+    font-size: 18px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #5175b2;
+}
+
+.thread-content .title-thread:hover {
+    font-size: 18px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content {
+    padding-top: 15px;
+}
+
+.thread-content .username {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #77797c;
+}
+
+.thread-content .thread-name {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #77797c;
+    margin-left: 5px;
+}
+
+.thread-content .username:hover {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content .thread-name:hover {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content .time-publ {
+    font-size: 14px;
+    text-decoration-line: none;
+    color: #77797c;
+    font-weight: 500;
+}
+
+.user-info {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-thread {
+    display: block;
+}
+
+.under-thread-content {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.under-thread-content img {
+    width: 15px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.under-thread-content .galery-image {
+    text-decoration: none;
+}
+
+.number-coments{
+    margin-right: 5px;
+}
+
+.under-thread-content .number-coments,
+.coments {
+    font-size: 14px;
+    color: #97999d;
+    text-decoration: none;
+}
+
+.under-thread-content .impulsar {
+    font-size: 14px;
+    color: #97999d;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.under-thread-content .impulsar:hover {
+    font-size: 14px;
+    color: #324d7d;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.number-coments:hover,
+.number-coments:hover+.coments {
+    font-size: 14px;
+    color: #324d7d;
+    text-decoration: none;
+}
+
+.votebtn {
+    display: flex;
+    background-color: rgb(240, 240, 240);
+    border: 0;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+    height: 2rem;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    text-align: center;
+}
+
+.votaciones {
+    padding: 10px;
+}
+
+.voto{
+    padding-top: 5px;
+}
+.votebtn img {
+    padding-top: 0;
+    margin-left: 5px;
+    padding-bottom: 0;
+    height: 14px;
+    width: auto;
+}
+
+.votebtn .number {
+    text-decoration: none;
+    font-size: 16px;
+    color: #aeb0b4;
+    margin-left: 5px;
+}

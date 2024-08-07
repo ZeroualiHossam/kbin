@@ -1,0 +1,39 @@
+.edit-profile {
+    background-color: white; 
+    margin: 20px auto; 
+    padding: 20px; 
+    width: 53%;
+    position: center;
+    border-radius: 10px;
+}
+
+.edit-profile form div {
+    margin-top: 10px;
+}
+
+.edit-profile form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-profile form input[type="text"],
+.edit-profile form textarea,
+.edit-profile form input[type="file"] {
+    width: calc(100% - 16px); /* Ajusta el ancho para considerar el padding */
+    padding: 8px;
+    margin: 0 8px 10px 8px; /* Añade márgenes a los lados si es necesario */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.edit-profile form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto; 
+}

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User comments - kbin.social</title>
+        <link rel="stylesheet" href="{% static 'user_comment.css' %}">
+    </head>
+    
+    <body class="theme--light">
+        <div class="container">
+            <main>
+                <aside class="options" id="comentarios"> <!--Estipular el código secundario-->
+                    <menu> <!--Lista no ordenada de elementos-->
+                        <li>
+                            <a href="?order=-upvotes_count&option={{option}}" {% if request.GET.order == "-upvotes_count" %}class="active"{% endif %}>
+                                top
+                            </a>
+                        </li>
+                        <li>
+                            <a href="?order=-created&option={{option}}" {% if request.GET.order == "-created" or request.GET.order is none %}class="active"{% endif %}>
+                                newest
+                            </a>
+                        </li>    
+                        <li>
+                            <a href="?order=created&option={{option}}" {% if request.GET.order == "created" %}class="active"{% endif %}>
+                                oldest
+                            </a>
+                    </menu>
+                </aside>
+
+                {% if comments %}
+                    <ul style="padding-left: 0;">
+                        {% for comment in comments %}
+                            <li style="list-style-type: none;">
+                                {% with increased_level=level|add:0.5 %}
+                                    {% include 'comment_user.html' with comment=comment level=increased_level %}
+                                {% endwith %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div id="no_comments" class="comment">
+                        <p>No hi ha commentaris encara.</p>
+                    </div>
+                {% endif %}
+            </main>
+        </div>
+    </body>
+</html>

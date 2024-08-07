@@ -1,0 +1,540 @@
+.theme--light {
+	--kbin-body-font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	--kbin-body-bg: #ecf0f1;
+	--kbin-text-color: #212529;
+	--kbin-primary-color: #61366b;
+	--kbin-section-bg: #fff;
+	--kbin-options-bg: #fff;
+	--kbin-options-text-color: #95a5a6;
+	--kbin-options-link-color: #95a5a6;
+	--kbin-options-link-hover-color: #32465b;
+	--kbin-options-link-hover-border: 3px solid #32465b;
+	--kbin-input-bg: #fff;
+	--kbin-button-primary-bg: #4e3a8c;
+	--kbin-button-primary-text-color: #fff;
+	--kbin-meta-link-color: #606060;
+	--kbin-vote-bg: #f3f3f3;
+    --kbin-vote-text-color: #b6b6b6;
+    --kbin-input-text-color: var(--kbin-text-color);
+    --kbin-input-border: 1px solid #e5eaec;
+    --kbin-section-border: 1px solid #e5eaec;
+    --kbin-button-primary-hover-bg: #3f2e77;
+    --kbin-button-primary-text-hover-color: #fff;
+}
+
+body {
+	background-color: var(--kbin-body-bg);
+	color: var(--kbin-text-color);
+	font-family: var(--kbin-body-font-family);
+	margin: 0;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1360px;
+}
+
+.section {
+	background-color: var(--kbin-section-bg);
+    border: var(--kbin-section-border);
+	padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+	margin-bottom: 1rem !important;
+}
+
+form div {
+	margin-bottom: 1rem;
+}
+
+
+.back-btn{
+    background-color: var(--kbin-section-bg);
+    margin-bottom: 1rem;
+}
+.btn {
+	cursor: pointer;
+	font-size: .85rem;
+	font-weight: 700;
+	color: var(--kbin-button-primary-text-color);
+	padding: .7rem;
+	background: var(--kbin-button-primary-bg);
+	border: var(--kbin-button-primary-border);
+    float: right;
+}
+
+.impuls {
+    margin-left: 10px;
+}
+
+.impuls button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #97999d;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.impuls button:hover{
+    color: #275878
+}
+
+textarea, input, select { 
+	background: var(--kbin-input-bg);
+	border: var(--kbin-input-border); 
+	color: var(--kbin-input-text-color); 
+	font-family: var(--kbin-body-font-family); 
+	font-size: .9rem; 
+	box-sizing: border-box; 
+	padding: 1rem .5rem; 
+	resize: vertical;
+	width: 100%;
+}
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+.comment {
+    background-color: var(--kbin-section-bg);
+    border: var(--kbin-section-border);
+	padding: 0.75rem 1rem;
+	margin-bottom: 0.2rem !important;
+}
+
+.comment.with-reply-form {
+    padding-bottom: 3rem; 
+}
+
+.commentMainInfo {
+	display: flex; 
+    align-items: flex-start; 
+}
+
+.commentMainInfo header{
+	background: none;
+	color: var(--kbin-meta-text-color);
+	font-size: .8rem;
+	grid-area: header/header/header/header;
+	opacity: .8;
+	height: auto ;
+}
+.commentMainInfo p {
+	font-size: 0.9rem;
+	word-break: break-word;
+	line-height: 0;
+}
+
+.commentMainInfo img{
+	width: 25px; 
+    height: 25px; 
+    margin-right: 0.75rem; 
+}
+
+.commentMainInfo div{
+	flex-grow: 1;
+}
+
+.under-comment-content {
+    margin-left: 2.3rem;
+    grid: flex;
+    align-items: flex-start; 
+}
+
+.under-comment-content a {
+    font-size: 11px;
+    color: #97999d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.votebtn{
+	display: inline-block;
+	background-color: var(--kbin-vote-bg);
+	border: 0;
+	color: var(--kbin-vote-text-color);
+	cursor: pointer;
+	font-weight: 600;
+	height: 2rem;
+	line-height: 2rem;
+	margin: 0;
+	padding: 0;
+	width: 4rem;
+	text-align: center;
+}
+
+.votebtn img {
+	vertical-align: middle;
+	height: 15px;
+	width: auto;
+}
+
+.votebtn .number {
+	text-decoration: none;
+	font-size: 20px;
+	color: #95a5a6;
+}
+
+menu {
+	margin: 0;
+	padding: 0;
+}
+
+.vota{
+    padding-top: 0;
+    margin-left: 0;
+    padding-bottom: 0;
+    height: 1px;
+    width: auto;
+}
+
+.options {
+	background: var(--kbin-options-bg);
+	color: var(--kbin-options-text-color);
+    border: var(--kbin-section-border);
+	display: grid;
+	font-size: .85rem;
+	grid-template-columns: auto-fit;
+	height: 2.5rem;
+	margin-bottom: .5rem;
+	justify-content: start;
+}
+
+.options > * {
+	display: grid;
+	grid-auto-columns: max-content;
+	grid-auto-flow: column;
+	list-style: none;
+	justify-content: start;
+}
+
+.options > * a {
+	color: var(--kbin-options-link-color);
+	display: block;
+	padding: 0.65rem 1rem;
+	text-decoration: none;
+}
+
+.options > * a.active, .options > * a:hover {
+	border-bottom: var(--kbin-options-link-hover-border);
+	color: var(--kbin-options-link-hover-color);
+}
+
+.votes{
+	align-items: center;
+}
+
+.votebtn img {
+    padding-top: 10px;
+    margin-left: 5px;
+    padding-bottom: 14px;
+    height: 14px;
+	align-items: center;
+    width: auto;
+}
+
+.votebtn .number{
+	text-decoration: none;
+	font-size: 16px;
+	color: #95a5a6;
+	margin-left: 15px;
+}
+
+
+.thread {
+    background-color: var(--kbin-section-bg);
+    border: var(--kbin-section-border);
+    height: auto;
+	margin-bottom: 15px;
+}
+
+.thread .no-multimedia {
+    margin-top: 15px;
+    display: flex;
+}
+
+.thread .media {
+    padding: 15px;
+    width: 825px;
+    height: auto;
+}
+
+.thread .media iframe {
+    padding: 15px;
+    width: 760px;
+    height: 400px;
+    border: 0;
+}
+
+.thread {
+    margin-top: 15px;
+    display: block;
+}
+
+.left {
+    display: block;
+}
+
+
+.thread-content .title-thread {
+    font-size: 18px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #5175b2;
+}
+
+.thread-content .title-thread:hover {
+    font-size: 18px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content {
+    padding-top: 15px;
+}
+
+.thread-content .username {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #77797c;
+}
+
+.thread-content .thread-name {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #77797c;
+    margin-left: 5px;
+}
+
+.thread-content .username:hover {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content .thread-name:hover {
+    font-size: 14px;
+    text-decoration-line: none;
+    font-weight: bold;
+    color: #324d7d;
+}
+
+.thread-content .time-publ {
+    font-size: 14px;
+    text-decoration-line: none;
+    color: #77797c;
+    font-weight: 500;
+}
+
+.user-info {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-thread {
+    display: block;
+}
+
+.under-thread-content {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.under-thread-content img {
+    width: 15px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.number-coments{
+    margin-right: 5px;
+}
+
+.under-thread-content .galery-image {
+    text-decoration: none;
+}
+
+.under-thread-content .number-coments,
+.coments {
+    font-size: 14px;
+    color: #97999d;
+    text-decoration: none;
+}
+
+.under-thread-content .impulsar {
+    font-size: 14px;
+    color: #97999d;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.under-thread-content .impulsar:hover {
+    font-size: 14px;
+    color: #324d7d;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.number-coments:hover,
+.number-coments:hover+.coments {
+    font-size: 14px;
+    color: #324d7d;
+    text-decoration: none;
+}
+
+.votebtn_ {
+    display: flex;
+    background-color: rgb(240, 240, 240);
+    border: 0;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+    height: 2rem;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    text-align: center;
+}
+
+.votaciones_ {
+    margin-left: 20px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.voto_{
+    padding-top: 5px;
+}
+.votebtn_ img {
+    padding-top: 0;
+    margin-left: 5px;
+    padding-bottom: 0;
+    height: 14px;
+    width: auto;
+}
+
+.votebtn_ .number_ {
+    text-decoration: none;
+    font-size: 16px;
+    color: #aeb0b4;
+    margin-left: 5px;
+}
+
+.number-coments:hover,
+ .coments:hover  {
+    font-size: 14px;
+    color: #324d7d;
+    text-decoration: none;
+}
+
+.btn-link {
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+}
+
+body { /*body normal*/
+	background-color: var(--kbin-body-bg); /*Aplicar color fondo body*/
+	color: var(--kbin-text-color); /*Aplicar color texto body*/
+	font-family: var(--kbin-body-font-family); /*Aplicar fuente texto body*/
+	margin: 0; /*Establece si hay algun margen (aplicar un espacio)*/
+}
+
+.container { /*Contenedor general*/
+	margin: 0 auto; /*El auto aplicarlo en todos los lados, top, bottom, etc*/
+	max-width: 1360px; /*Maximo ancho del contenedor empieza desde el centro, por ello, si no ocupa toda la pantalla, da la sensación de que hay margenes*/
+}
+
+.options { /*Caja de opciones*/
+	background: var(--kbin-options-bg); /*Fondo caja opciones*/
+	border: var(--kbin-section-border);
+	color: var(--kbin-options-text-color); /*Color texto*/
+	display: grid; /*Las opciones se mostarran en una tabla*/ 
+	font-size: .85rem; /*Augmento tamaño letra en porcentaje respecto el puesto por defecto en el <html>*/
+	grid-template-columns: max-content max-content max-content max-content; /*Definimos que habrán 4 columnas y que cad una ocupará el tamaño del contenido*/
+	height: 2.5rem; /*Augmento altura caja respecto la puesta en html*/
+	margin-bottom: .5rem; /*Augmento margen respecto a la puesta en html*/
+}
+
+.options > * { 
+	display: grid; /*Todos los elementos que se creen dentro de un elemtno html con la clase options se añadirán en una tabla*/
+	grid-auto-columns: max-content; /*Cada elemento de cada columna ocupará el espacio necesario*/
+	grid-auto-flow: column; /*Cuando se añade un elemento, se añade como una nueva columna*/
+	list-style: none; /*Eliminar marcadores (que se vea con un · al lado de cada elemento de la tabla de una lista*/
+}
+
+.options > * a {
+	color: var(--kbin-options-link-color); /*Color de la fuente de las opciones*/
+	display: block; /*Lo mete en un bloque*/
+	padding: .5rem 1rem; /*.5 relleno superior e inferior, 1 relleno izquierdo y direcho*/
+    padding-top: 15px;
+	text-decoration: none; /*No se le subraya*/
+} /* Todos los que sean hijos de una clase options, que se creen objetos deentro de ella, y sean de tipo <a>*/
+
+.options > * a.active, .options > * a:hover {
+	padding-top: 15px; /*Lo del hover es si pasas por encima seleccionandolo*/
+	border-bottom: var(--kbin-options-link-hover-border); /*Ponerle un borde a la opción seleccionada*/
+	color: var(--kbin-options-link-hover-color); /*Color del borde*/
+}
+
+.options h2 {
+	font-size: .85rem; /*Si el objeto h2 esta dentro de un options aplica este tamaño de letra*/
+}
+
+.options__title { /*Para el "añadir nuevo"*/
+	align-self: center; /*Se centre verticalmente*/
+	margin: 0 .5rem; /* 0 margen superior e inferior, 0.5 dejar un margen del 50% del elemento raiz*/
+	text-transform: uppercase; /*Transforma el texto en mayuscula*/
+}
+
+menu {
+	margin: 0; /*Establece que no haya margenes fuera del elemento menu*/
+	padding: 0; /*Establece que no haya relleno dentro de los elementos de menu*/
+}
+
+.section {
+	background-color: var(--kbin-section-bg) !important; /*Fondo de la caja sección*/
+	border: var(--kbin-section-border);
+	padding: 2rem 1rem; /*Espacios internos, 2 superior e inferior, 1 en los laterales*/
+}
+
+form div {
+	margin-bottom: 1rem; /*Se se pone un div en un form, se deja un espacio abajo*/
+}
+
+.btn { /*Para el boton de enviar*/
+	cursor: pointer; /*Se cambia a un a mano al ponerse por encima del elemento*/
+	font-size: .85rem; /*Tamaño fuente*/
+	font-weight: 700; /*Peso fuente*/
+	color: var(--kbin-button-primary-text-color); /*Color fuente*/
+	padding: .7rem; /*Dejar espacio en todas direcciones*/
+	background: var(--kbin-button-primary-bg); /*Color fondo*/
+	border: var(--kbin-button-primary-border); /*Color borde*/
+}
+
+h2 {
+	font-size: 2rem; /*Los segundos titulos tendrén tamaño *2 del elementor aiz*/
+}
+
+.btn:hover {
+    background: var(--kbin-button-primary-hover-bg);
+    color: var(--kbin-button-primary-text-hover-color)!important
+}

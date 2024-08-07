@@ -1,0 +1,19 @@
+<!-- threads.html -->
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kbin.social - Explore the Fediverse</title>
+    <link rel="stylesheet" href="{% static 'thread.css' %}">
+    <link rel="shortcut icon" href="{% static 'src/favicon.ico' %}">
+</head>
+
+<body>
+{%include 'threads_list.html' %}
+</body>
+</html>
+{% endblock %}

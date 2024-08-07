@@ -1,0 +1,164 @@
+
+body { /*body normal*/
+	background-color: #fff; /*Aplicar color fondo body*/
+	color: #212529; /*Aplicar color texto body*/
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";; /*Aplicar fuente texto body*/
+	margin: 0; /*Establece si hay algun margen (aplicar un espacio)*/
+}
+
+.container {
+	margin-left: 270px;
+    align-items: center;
+    width: 825px;
+    height: 45px;
+	margin-top: 3px;
+}
+
+.options { /*Caja de opciones*/
+	background:  #fff; /*Fondo caja opciones*/
+	color: #95a5a6; /*Color texto*/
+	display: grid; /*Las opciones se mostarran en una tabla*/ 
+	font-size: .85rem; /*Augmento tamaño letra en porcentaje respecto el puesto por defecto en el <html>*/
+	grid-template-columns: max-content max-content max-content max-content; /*Definimos que habrán 4 columnas y que cad una ocupará el tamaño del contenido*/
+	height: 2.5rem; /*Augmento altura caja respecto la puesta en html*/
+	margin-bottom: .5rem; /*Augmento margen respecto a la puesta en html*/
+}
+
+.options > * { 
+	display: grid; /*Todos los elementos que se creen dentro de un elemtno html con la clase options se añadirán en una tabla*/
+	grid-auto-columns: max-content; /*Cada elemento de cada columna ocupará el espacio necesario*/
+	grid-auto-flow: column; /*Cuando se añade un elemento, se añade como una nueva columna*/
+	list-style: none; /*Eliminar marcadores (que se vea con un · al lado de cada elemento de la tabla de una lista*/
+}
+
+.options > * a {
+	color: #95a5a6; /*Color de la fuente de las opciones*/
+	display: block; /*Lo mete en un bloque*/
+	padding: .5rem 1rem; /*.5 relleno superior e inferior, 1 relleno izquierdo y direcho*/
+	text-decoration: none; /*No se le subraya*/
+} /* Todos los que sean hijos de una clase options, que se creen objetos deentro de ella, y sean de tipo <a>*/
+
+.options > * a.active, .options > * a:hover { /*Lo del hover es si pasas por encima seleccionandolo*/
+	border-bottom: 3px solid #32465b; /*Ponerle un borde a la opción seleccionada*/
+	color: #32465b; /*Color del borde*/
+}
+
+menu {
+	margin: 0; /*Establece que no haya margenes fuera del elemento menu*/
+	padding: 0; /*Establece que no haya relleno dentro de los elementos de menu*/
+}
+
+.section {
+	background-color: #fff;
+	border: 1px solid #e5eaec;
+	color: #212529;
+	margin-bottom: .5rem;
+	padding: 2rem 1rem;
+}
+
+form div {
+	margin-bottom: 1rem; /*Se se pone un div en un form, se deja un espacio abajo*/
+}
+
+table th {
+	border: 1px solid #e5eaec;
+	padding: 1.5rem 1rem;
+	position: relative;
+	z-index: 1;
+  }
+
+  table th {
+	background-color: #ecf0f1;
+  }
+
+  thead tr {
+	background-color: #fff;
+	font-weight: 700;
+	text-align: left;
+  }
+
+  .section table {
+	-webkit-overflow-scrolling: touch;
+	border: 1px solid #e5eaec;
+	border-collapse: collapse;
+	font-family: sans-serif;
+	font-size: .9em;
+	overflow-x: auto;
+	width: 100%;
+  }
+
+  table td {
+	border: 1px solid #e5eaec;
+	padding: 1.5rem 1rem;
+	position: relative;
+  }
+
+  .section a {
+	color: #37769e;
+	overflow-wrap: anywhere;
+  }
+  a {
+	color: #37769e;
+	text-decoration: none;
+  }
+
+  /* Estilos para las filas impares */
+tr:nth-child(odd) {
+    background-color:  1px solid #e5eaec; /* Fondo gris oscuro para las filas impares */
+}
+
+/* Estilos para las filas pares */
+tr:nth-child(even) {
+    background-color: #fafafa; /* Fondo gris claro para las filas pares */
+}
+.magazine__subscribe {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	margin-bottom:2.5rem
+  }
+  .rounded-edges .magazine__subscribe div {
+	border-radius:.5rem
+  }
+
+.magazine__subscribe div {
+    align-items: center;
+    background: #fff;;
+    border: v1px dashed #e5eaec; 
+    color: #606060;
+    display: flex;
+    flex-direction: row;
+    font-size: .9rem;
+    left: 1px;
+    padding: .3rem .5rem;
+    position: relative;
+}
+
+td .magazine__subscribe {
+    margin: 0;
+}
+.magazine__subscribe button {
+	height:100%;
+	cursor: pointer;
+    background-color: #fff;
+    color: #606060;
+    border: 1px dashed #e5eaec;
+    padding: 0.3rem 0.5rem; 
+}
+
+.magazine__subscribe .action {
+    background-color: #fff;
+    border: 1px dashed #e5eaec;
+    padding: 0.3rem 0.5rem;
+	margin-left:.5rem;
+}
+
+.magazine__subscribe .span {
+    color: #606060;
+    margin-left: 0.5rem;
+}
+.magazine__subscribe button:hover {
+	background: #f5f5f5;
+    color: #212529;
+}

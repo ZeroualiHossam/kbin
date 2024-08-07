@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html.lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile - kbin.social</title>
+        <link rel="stylesheet" href="{% static 'profile_setting.css' %}">
+    </head>
+    {% include 'header.html' %}
+    <body class="theme--dark">
+        <div class = "form-container">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{user_form}}
+                {{usuario_form}}
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </body>
+</html>
+
+                    

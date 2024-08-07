@@ -1,0 +1,32 @@
+.contenidor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 450px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    width: 875px;
+    margin-bottom: 15px;
+}
+
+.nav-item {
+    color: black;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    padding: 10px 20px;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.nav-item:hover {
+    font-weight: bold;
+}
+
+.nav-item.active {
+    font-weight: bold;
+    color: black; 
+}

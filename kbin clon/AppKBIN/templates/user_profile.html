@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html.lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Overview - {{user_profile.username}} - kbin.social</title>
+        <link rel="stylesheet" href="{% static 'profile.css' %}">
+    </head>
+    {% include 'header.html' %}
+    <body class="theme--light">
+        <div class="container">
+            <main id="main">
+                <div class = 'section'>
+                    <div class="user-box">
+                        {% if user_profile.usuario.cover %}
+                        <img width="100%" height="220" src="{{user_profile.usuario.cover.url}}" alt="{{ user_profile.username }} cover">
+                        {% endif %}
+                        
+                            <div class="user-main" id="content">
+                                <div class="row">
+                                    <figure>
+                                        {% if user_profile.usuario.avatar %}
+                                        <img width="100" height="100" src="{{user_profile.usuario.avatar.url}}" alt="{{ user_profile.username }} avatar">
+                                        {% endif %}
+                                    </figure>
+                                    <h1>{{user_profile.username}}</h1>
+                                    <small>{{user_profile.email}}</small>
+                                </div>
+                            </div>
+                        <div class="about">
+                            <div class="content">
+                                <p>{{user_profile.usuario.bio | default:""}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <aside class="options" id="options">
+                    <menu class="menu_opt">
+                        <li>
+                            <a href="/u/{{user_profile.username}}/?option=threads" class="">
+                                threads ({{ count_threads|default:"0" }})
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/u/{{user_profile.username}}/?option=comments" class="">
+                                comments ({{ count_comentaris|default:"0" }})
+                            </a>
+                        </li>
+                        {% if is_own_profile %}
+                        <li>
+                            <a href="/u/{{user_profile.username}}/?option=boosts" class="">
+                                boosts ({{ count_boosted|default:"0" }})
+                            </a>
+                        </li>
+                        {% endif %}
+                    </menu>
+                </aside>
+            </main>
+            <div class= "section_comments">
+            {%if option == "comments"%}
+                {%include 'list_user_comments.html'%}
+            {%endif%}
+            </div>
+        </div>
+        <div>
+            {%if option == "boosts" or option == "threads"%}
+                {% include 'threads_list_profile.html' %}
+            {%endif%}
+        </div>
+    </body>
+</html>
+
+                    
